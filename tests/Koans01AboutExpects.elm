@@ -20,6 +20,7 @@ import Utils.Test exposing (describe, test)
 
 import Utils.Blank exposing (..)
 
+foo = 1
 
 testSuite =
     -- `describe` takes the suite description and a list of `Test`s
@@ -27,15 +28,15 @@ testSuite =
         [ -- `test` takes the test description and a function that returns an
           -- `Expectation` when evaluated with the unit tuple `()`
           test "Expect.true tests for a true value"
-            (\() -> Expect.true "Should be True" (x____replace me____x))
+            (\() -> Expect.true "Should be True" (True))
           -- `<|` calls the function on the left with the argument on the right
           --  and can be used to avoid some parenthesis
         , test "Expect.equal tests for equality" <|
-            \() -> Expect.equal True (x____replace me____x)
+            \() -> Expect.equal True (foo == 1)
           -- `|>` calls the function on the right with the argument on the left
           -- and can be used to "pipeline" values through a series of functions
         , test "Expect.notEqual tests for inequality" <|
             \() ->
-                x____replace me____x
-                    |> Expect.notEqual False
+                foo == 2
+                    |> Expect.notEqual True
         ]
