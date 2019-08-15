@@ -4,24 +4,29 @@ import Expect
 import Utils.Blank exposing (..)
 import Utils.Test exposing (describe, test)
 
+foo = "A string"
+bar = 'A'
+baz = 42.2400
+qux = 42
+quux = [1,2,3]
 
 testSuite =
     describe "About Literals"
         [ test "strings are enclosed in double quotes" <|
             \() ->
-                x____replace me____x
+                foo
                     |> Expect.equal "A string"
         , test "characters are enclosed in single quotes" <|
             \() ->
-                x____replace me____x
+                bar
                     |> Expect.equal 'A'
         , test "floats have a decimal" <|
             \() ->
-                x____replace me____x
+                baz
                     |> Expect.within (Expect.Absolute 0.0001) 42.24
         , test "integers do not" <|
             \() ->
-                x____replace me____x
+                qux
                     |> Expect.equal 42
         , test "number literals can be integers" <|
             let
@@ -30,7 +35,7 @@ testSuite =
                     42
             in
             \() ->
-                x____replace me____x
+                42
                     |> Expect.equal num
         , test "number literals can be floats" <|
             let
@@ -39,7 +44,7 @@ testSuite =
                     42.0
             in
             \() ->
-                x____replace me____x
+                42
                     |> Expect.within (Expect.Absolute 0.0001) num
         , test "floats can be expected to be within an absolute range" <|
             let
@@ -48,7 +53,7 @@ testSuite =
                     41.9999
             in
             \() ->
-                x____replace me____x
+                42.0
                     |> Expect.within (Expect.Absolute 0.0001) num
         , test "or floats can be expected to be within relative range (0.01 meaning 1%)" <|
             let
@@ -57,10 +62,10 @@ testSuite =
                     41.6
             in
             \() ->
-                x____replace me____x
+                42.0
                     |> Expect.within (Expect.Relative 0.01) num
         , test "lists are denoted by brackets" <|
             \() ->
-                x____replace me____x
+                quux
                     |> Expect.equal [ 1, 2, 3 ]
         ]
